@@ -16,7 +16,7 @@ for i in range (0,30):
         f=open('pic_'+str(i+1)+'.jpeg','wb')
 
         for chunk in res.iter_content(100000):
-            f.write(chunk)p
+            f.write(chunk)
             f.close()
 
     except:
