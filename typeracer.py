@@ -12,14 +12,16 @@ practice.click()
 
 time.sleep(3)
 '''
-browser.get("http://play.typeracer.com/?rt=trgargoyle08")
+browser.get("http://play.typeracer.com/?rt=trnikhilranjan7")
+time.sleep(10)
 
-input_block = browser.find_element_by_class_name('txtInput')
+practice = browser.find_element_by_xpath('/html/body/div[1]/div/div[1]/div[1]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[3]/td/div/div/table/tbody/tr[2]/td[3]/table/tbody/tr[3]/td/table/tbody/tr/td[2]/a')
+practice.click()
 
 text = input('What\'s the text?\n').split(' ')
 
-practice = browser.find_element_by_link_text('join race')
-practice.click()
+
+input_block = browser.find_element_by_class_name('txtInput')
 
 for word in text:
     input_block.send_keys(word)
