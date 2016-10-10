@@ -1,6 +1,5 @@
 from selenium import webdriver
-import requests, time
-from bs4 import BeautifulSoup
+import time
 
 browser = webdriver.Firefox()
 browser.get("http://play.typeracer.com/?rt=trnikhilranjan7")
