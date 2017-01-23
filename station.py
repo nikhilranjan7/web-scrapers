@@ -32,7 +32,18 @@ for i in range(0,34):
             district.send_keys(Keys.ENTER)
             go = browser.find_element_by_xpath("/html/body/table/tbody/tr/td/table/tbody/tr[1]/td/div/table/tbody/tr[6]/td/table/tbody/tr/td[2]/form/div[2]/table/tbody/tr[3]/td/input")
             go.click()
-            no_stations=browser.find_element_by_xpath("/html/body/table/tbody/tr/td/table/tbody/tr[1]/td/div/table/tbody/tr[6]/td/table/tbody/tr/td[2]/form/div[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/td/span[1]")
+            time.sleep(10)
+            no_stations=browser.find_element_by_class_name("pagebanner")
             no_stations=no_stations.text.split(' ')
-            no_stations=no_stations[0]
-            print(no_stations)
+            no_stations=int(no_stations[0])
+            stations=[]
+            while(no_stations > 0):
+                for l in range(0,min(25,no_stations)):
+                    station_unit=browser.find_element_by_xpath("/html/body/table/tbody/tr/td/table/tbody/tr[1]/td/div/table/tbody/tr[6]/td/table/tbody/tr/td[2]/form/div[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/td/table/tbody/tr[%s]/td[2]"%str(l+1))
+                    station_unit=station_unit.text
+                    stations.append(station_unit)
+                    print(station_unit)
+                nexta=browser.find_element_by_xpath("/html/body/table/tbody/tr/td/table/tbody/tr[1]/td/div/table/tbody/tr[6]/td/table/tbody/tr/td[2]/form/div[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/td/span[2]/a[4]")
+                nexta.click()
+                no_stations = no_stations-25
+            print(stations)
