@@ -2,14 +2,14 @@ import bs4,requests,os,sys
 
 images='one-piece'
 
-os.makedirs('./desktop/'+images,exist_ok=True)
-os.chdir('./desktop/'+images)
+os.makedirs('/Users/nikhilranjan/desktop/'+images,exist_ok=True)
+os.chdir('/Users/nikhilranjan/desktop/'+images)
 
 for i in range (0,30):
 
     try:
         a = str(i).zfill(3)
-        url='http://h.mfcdn.net/store/manga/106/TBD-841.0/compressed/c' + a + '.jpg'
+        url='http://h.mfcdn.net/store/manga/106/TBD-846.0/compressed/r' + a + '.jpg'
         print(url)
         res=requests.get(url)
 
